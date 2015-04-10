@@ -1,16 +1,52 @@
 <meta charset="utf-8">
-<title>Демоменю</title>
 <link rel="stylesheet" href="demomenu.css"/>
+<script src="swig.min.js"></script>
+
+<script>
+  var sourceMenu = [
+    {title: 'Холодные вьетнамские роллы с креветками, манго и имбирём', price: 210},
+    {title: 'Креветка и овощи темпура', price: 220},
+    {title: 'Креветочные чипсы с острым соусом', price: 50},
+    {title: 'Хрустящий кальмар с домашним соусом Чили', price:  240},
+    {title: 'Гедза с креветкой (6шт)', price: 250},
+    {title: 'Гедза со свининой (6 шт.)', price: 190},
+    {title: 'Креветки васаби', price: 280},
+    {title: 'Черные древесные грибы Чили, фризе, красный и зеленый лук', price: 110},
+    {title: 'Азиатские овощи обжаренные на воке с устричным соусом и чесноком', price: 160},
+    {title: 'Вьетнамские жареные немы с бараниной в рисовой бумаге с соусом нук чам', price: 165},
+    {title: 'Спринг-ролл с овощами подаются с соусом из чили и ананаса', price: 130},
+    {title: 'Спринг-ролл с креветками с соусом из манго', price: 295},
+    {title: 'зеленая фасоль по-сычуаньски обжаренная на воке с чили и свининой', price: 190},
+    {title: 'Вьетнамский нем с курицей', price: 145},
+    {title: 'Спринг-ролл c уткой и соусом хой син', price: 265}
+  ];
+
+  var menu = $('#menu').html();
+  content = swig.render({
+    locals: sourceMenu
+  });
+  $('#result').html(content);
+
+
+  // var swig  = require('swig');
+  // swig.renderFile('/path/to/template.html', {
+    // menu_content: 'awesome people',
+    // authors: ['Paul', 'Jim', 'Jane']
+});
+
+</script>
+
+<title>Демоменю</title>
 <div class='pane'>
-  <div class='menu'>
-    <div class='menu-header'>Меню:</div>
+  <div class='menu-header'>Меню:</div>
+  <script id="menu" type="text/x-swig-template">
+    {% for menu_item in menu %}
     <div class='menu-template'>
-      <div class='menu-title'>
-        Холодные вьетнамские роллы с креветками, манго и имбирём
-      </div>
-      <div class='menu-price'>
-        210
-      </div>
+      <div class='menu-title'>{{ menu_item.title }}</div>
+      <div class='menu-price'>{{ menu_item.price }}</div>
     </div>
-  </div>
+    {% endfor %}
+  </script>
+  <div id='result'></div>
+</div>
 </div>
