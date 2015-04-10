@@ -5,6 +5,21 @@
 <script src="jquery.min.js"></script>
 <script src="jquery-ui.min.js"></script>
 
+<title>Демоменю</title>
+<div class='pane'>
+  <div id='result'></div>
+</div>
+
+<div id="test"></div>
+
+<script id="menu" type="text/x-swig-template">
+  <div class='menu-header'>Меню:</div>
+  {% for menu_item in menu %}
+    <div class='menu-title'>{{ menu_item.title }}</div>
+    <div class='menu-price'>{{ menu_item.price }}</div>
+  {% endfor %}
+</script>
+
 <script>
   var test = $("#test").html();
   var sourceMenu = [
@@ -33,19 +48,4 @@
   }};
   var content = swig.render(tpl, loc);
   $('#result').html(content);
-</script>
-
-<title>Демоменю</title>
-<div class='pane'>
-  <div id='result'></div>
-</div>
-
-<div id="test"></div>
-
-<script id="menu" type="text/x-swig-template">
-  <div class='menu-header'>Меню:</div>
-  {% for menu_item in menu %}
-    <div class='menu-title'>{{ menu_item.title }}</div>
-    <div class='menu-price'>{{ menu_item.price }}</div>
-  {% endfor %}
 </script>
