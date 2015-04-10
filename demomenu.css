@@ -13,3 +13,6 @@
     float:right;
     display:inline-block;
 }
+.menu-template{
+    border:2px solid black;
+}
