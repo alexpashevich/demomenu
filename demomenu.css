@@ -3,10 +3,13 @@
     margin-left:200px;
     font-size:20;
     font-weight:bold;
+    background:#E5E5E5;
 }
 .menu-title{
     float:left;
+    display:inline-block;
 }
 .menu-price{
     float:right;
+    display:inline-block;
 }
