@@ -25,10 +25,11 @@
   console.log('fuck');
   var tpl = $('#menu').html();
   console.log('fuck2');
-  var content = swig.render(tpl, {
+  var loc = {
     locals: {
-      menu: sourceMenu
-  }});
+      menu: sourceMenu 
+  }};
+  var content = swig.render(tpl, loc);
   $('#result').html(content);
 </script>
 
@@ -40,7 +41,7 @@
 
 <script id="menu" type="text/x-swig-template">
   <div class='menu-header'>Меню:</div>
-  {% for menu_item in sourceMenu %}
+  {% for menu_item in menu %}
     <div class='menu-title'>{{ menu_item.title }}</div>
     <div class='menu-price'>{{ menu_item.price }}</div>
   {% endfor %}
