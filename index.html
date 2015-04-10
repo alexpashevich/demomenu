@@ -24,7 +24,7 @@
   ];
 
   var menu = $('#menu').html();
-  var content = swig.render({
+  var content = swig.render(menu, {
     locals: sourceMenu
   });
   $('#result').html(content);
