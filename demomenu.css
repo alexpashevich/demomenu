@@ -1,6 +1,7 @@
 .menu-header{
     font-size:20;
     font-weight:bold;
+    margin-bottom:10px;
 }
 .menu-title{
     float:left;
@@ -11,7 +12,7 @@
     display:inline-block;
 }
 .menu-template{
-    /*border:2px solid black;*/
+    margin-bottom:10px;
 }
 .pane{
     width: 600px;
