@@ -10,18 +10,16 @@
   <div id='result'></div>
 </div>
 
-<div id="test"></div>
-
 <script id="menu" type="text/x-swig-template">
   <div class='menu-header'>Меню:</div>
   {% for menu_item in menu %}
     <div class='menu-title'>{{ menu_item.title }}</div>
     <div class='menu-price'>{{ menu_item.price }}</div>
   {% endfor %}
+  <hr>
 </script>
 
 <script>
-  var test = $("#test").html();
   var sourceMenu = [
     {title: 'Холодные вьетнамские роллы с креветками, манго и имбирём', price: 210},
     {title: 'Креветка и овощи темпура', price: 220},
@@ -39,14 +37,12 @@
     {title: 'Вьетнамский нем с курицей', price: 145},
     {title: 'Спринг-ролл c уткой и соусом хой син', price: 265}
   ];
-  console.log('fuck');
   var tpl = $("#menu").html();
-  console.log('fuck2');
-  var loc = {
+  var content = swig.render(tpl, {
     locals: {
-      menu: sourceMenu 
-  }};
-  var content = swig.render(tpl, loc);
+      menu: sourceMenu
+    }
+  });
   $('#result').html(content);
 </script>
 
