@@ -33,13 +33,14 @@
 
 <title>Демоменю</title>
 <div class='pane'>
-  <div class='menu-header'>Меню:</div>
-  <script id="menu" type="text/x-swig-template">
-    {% for menu_item in sourceMenu %}
-      <div class='menu-title'>{{ menu_item.title }}</div>
-      <div class='menu-price'>{{ menu_item.price }}</div>
-    {% endfor %}
-  </script>
   <div id='result'></div>
 </div>
-</div>
+
+
+<script id="menu" type="text/x-swig-template">
+  <div class='menu-header'>Меню:</div>
+  {% for menu_item in sourceMenu %}
+    <div class='menu-title'>{{ menu_item.title }}</div>
+    <div class='menu-price'>{{ menu_item.price }}</div>
+  {% endfor %}
+</script>
