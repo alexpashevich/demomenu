@@ -1,9 +1,11 @@
 .menu{
     width:500px;
     margin-left:200px;
+    background:#E5E5E5;
+}
+.menu-header{
     font-size:20;
     font-weight:bold;
-    background:#E5E5E5;
 }
 .menu-title{
     float:left;
