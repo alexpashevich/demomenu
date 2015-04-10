@@ -34,11 +34,9 @@
 <div class='pane'>
   <div class='menu-header'>Меню:</div>
   <script id="menu" type="text/x-swig-template">
-    {% for menu_item in menu %}
-    <div class='menu-template'>
+    {% for menu_item in sourceMenu %}
       <div class='menu-title'>{{ menu_item.title }}</div>
       <div class='menu-price'>{{ menu_item.price }}</div>
-    </div>
     {% endfor %}
   </script>
   <div id='result'></div>
