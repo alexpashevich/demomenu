@@ -23,10 +23,11 @@
     {title: 'Спринг-ролл c уткой и соусом хой син', price: 265}
   ];
 
-  var menu = $('#menu').html();
-  var content = swig.render(menu, {
-    locals: sourceMenu
-  });
+  var tpl = $('#menu').html();
+  var content = swig.render(tpl, {
+    locals: {
+      menu: sourceMenu
+  }});
   $('#result').html(content);
 </script>
 
