@@ -1,11 +1,19 @@
 <meta charset="utf-8">
 <link rel="stylesheet" href="demomenu.css"/>
+<link rel="stylesheet" href="range-slider.css"/>
 
 <script src="swig.min.js"></script>
 <script src="jquery.min.js"></script>
 <script src="jquery-ui.min.js"></script>
+<script src="range-slider.js"></script>
 
 <title>Демоменю</title>
+
+<div class='pane'>
+  <div id="#menu-slider" class="range-slider"></div>
+  <!-- <input type="button" id="filter" value="Фильтровать"></input> -->
+</div>
+
 <div class='pane'>
   <div id='result'></div>
 </div>
@@ -20,6 +28,13 @@
 </script>
 
 <script>
+  var slider = new RangeSlider($("#menu-slider"), {
+    start: [100, 200],
+    range: [0, 300],
+    onDrag: function() {
+      rerenderMenu();
+    }
+  }
   var sourceMenu = [
     {title: 'Холодные вьетнамские роллы с креветками, манго и имбирём', price: 210},
     {title: 'Креветка и овощи темпура', price: 220},
@@ -37,13 +52,29 @@
     {title: 'Вьетнамский нем с курицей', price: 145},
     {title: 'Спринг-ролл c уткой и соусом хой син', price: 265}
   ];
-  var tpl = $("#menu").html();
-  var content = swig.render(tpl, {
-    locals: {
-      menu: sourceMenu
-    }
-  });
-  $('#result').html(content);
+
+
+
+
+
+  function rerenderMenu() {
+    var tpl = $("#menu").html();
+    var filteredMenu = [];
+    var lowerBound = slider.value()[0];
+    var upperBound = slider.value()[1];
+    sourceMenu.forEach(function(element) {
+      if (element.price >= lowerBound && element.price <= upperBound) {
+        filteredMenu.push_back(element);
+      }
+    })
+
+    var content = swig.render(tpl, {
+      locals: {
+        menu: filteredMenu
+    }});
+    $('#result').html(content);
+  }
+
 </script>
 
 
