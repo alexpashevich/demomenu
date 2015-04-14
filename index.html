@@ -11,7 +11,6 @@
 
 <div class='pane'>
   <div id="menu-slider"</div>
-  <!-- <input type="button" id="filter" value="Фильтровать"></input> -->
 </div>
 
 <div class='pane'>
@@ -28,16 +27,6 @@
 </script>
 
 <script>
-  console.log("we are here");
-  var slider = new RangeSlider($("#menu-slider"), {
-    start: [100, 200],
-    range: [0, 300],
-    onDrag: function() {
-      rerenderMenu();
-    }
-  });
-  console.log(slider);
-
   var sourceMenu = [
     {title: 'Холодные вьетнамские роллы с креветками, манго и имбирём', price: 210},
     {title: 'Креветка и овощи темпура', price: 220},
@@ -56,10 +45,6 @@
     {title: 'Спринг-ролл c уткой и соусом хой син', price: 265}
   ];
 
-
-
-
-
   function rerenderMenu() {
     var tpl = $("#menu").html();
     var filteredMenu = [];
@@ -77,6 +62,16 @@
     }});
     $('#result').html(content);
   }
+
+  var slider = new RangeSlider($("#menu-slider"), {
+    start: [100, 200],
+    range: [0, 300],
+    onDrag: function() {
+      rerenderMenu();
+    }
+  });
+
+  rerenderMenu();
 
 </script>
 
