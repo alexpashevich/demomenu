@@ -12,6 +12,7 @@
             axis: "x"
         });
         $handle.on('drag', function() {
+            console.log('fuck grag');
             slider.setValueFromPosition();
             if (slider.onDragCallback) {
                 slider.onDragCallback();
